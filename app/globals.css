@@ -1,26 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit');
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cc-light: #fcfcfc;
+  --cc-grey: #cccccc;
+  --cc-dark: #212121;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--cc-light);
+  color: var(--cc-dark);
+  font-family: 'Kanit', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+.cc-flip-card {
+  perspective: 1000px;
+}
+
+.cc-flip-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.cc-flip-card:hover .cc-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.cc-flip-card-face {
+  backface-visibility: hidden;
+  inset: 0;
+  position: absolute;
+}
+
+.cc-flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes cc-zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.cc-zoom-in {
+  animation-duration: 0.6s;
+  animation-name: cc-zoom;
 }
