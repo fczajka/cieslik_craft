@@ -1,10 +1,10 @@
 import { SiteLayout } from '@/components/site/SiteLayout';
-import { HomePage } from '@/features/home/components/HomePage';
+import { GalleryPage } from '@/features/gallery/components/GalleryPage';
 
 export default function Page() {
   return (
     <SiteLayout>
-      <HomePage />
+      <GalleryPage />
     </SiteLayout>
   );
 }
