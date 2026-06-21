@@ -30,8 +30,8 @@ export function HomeCarousel({ slides }: HomeCarouselProps) {
   };
 
   return (
-    <div className='h-[90vh] max-[991.98px]:h-[82vh]'>
-      <ol className='absolute bottom-[-84vh] left-0 right-0 z-1 flex list-none justify-center max-[991.98px]:bottom-[-72vh]'>
+    <div className='relative w-full'>
+      <ol className='absolute bottom-6 left-0 right-0 z-10 flex list-none justify-center'>
         {slides.map((slide, index) => (
           <li key={slide.src} className='mx-0.75'>
             <button
@@ -47,17 +47,29 @@ export function HomeCarousel({ slides }: HomeCarouselProps) {
       </ol>
       <div className='w-full overflow-hidden'>
         {slides.map((slide, index) => {
+          let width = 2048;
+          let height = 1365;
+          if (slide.src.includes('slide4')) {
+            width = 5048;
+            height = 2836;
+          } else if (
+            slide.src.includes('slide7') ||
+            slide.src.includes('slide8')
+          ) {
+            width = 2028;
+            height = 1034;
+          }
+
           const image = (
-            <div className='relative h-[90vh] max-[991.98px]:h-[82vh]'>
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                sizes='100vw'
-                className='object-cover'
-                style={{ objectPosition: slide.objectPosition }}
-              />
-            </div>
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              width={width}
+              height={height}
+              sizes='100vw'
+              className='w-full h-auto block'
+              priority={index === 0}
+            />
           );
 
           return (
@@ -80,7 +92,7 @@ export function HomeCarousel({ slides }: HomeCarouselProps) {
       </div>
       <button
         type='button'
-        className='absolute left-0 top-[140vh] z-0 ml-[5%] flex items-center justify-center border-0 bg-transparent p-6.25 text-center text-white opacity-90 transition-opacity duration-150 max-[991.98px]:top-[130vh]'
+        className='absolute left-0 top-1/2 -translate-y-1/2 z-10 ml-[5%] flex items-center justify-center border-0 bg-transparent p-6.25 text-center text-white opacity-90 transition-opacity duration-150'
         onClick={showPrevious}
         aria-label='Previous slide'
       >
@@ -88,7 +100,7 @@ export function HomeCarousel({ slides }: HomeCarouselProps) {
       </button>
       <button
         type='button'
-        className='absolute right-0 top-[140vh] z-0 mr-[5%] flex items-center justify-center border-0 bg-transparent p-6.25 text-center text-white opacity-90 transition-opacity duration-150 max-[991.98px]:top-[130vh]'
+        className='absolute right-0 top-1/2 -translate-y-1/2 z-10 mr-[5%] flex items-center justify-center border-0 bg-transparent p-6.25 text-center text-white opacity-90 transition-opacity duration-150'
         onClick={showNext}
         aria-label='Next slide'
       >

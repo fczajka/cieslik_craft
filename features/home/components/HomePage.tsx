@@ -12,7 +12,7 @@ function ParallaxBlock({
 }) {
   return (
     <section
-      className='h-[70vh] bg-cover bg-fixed bg-center bg-no-repeat'
+      className='h-[25vh] bg-cover bg-fixed bg-center bg-no-repeat lg:h-[70vh]'
       style={{ backgroundImage: `url("${image}")` }}
     >
       <h2 className='relative left-[5%] top-1/2 w-max -translate-y-1/2 text-[32px] tracking-[2px] text-[#FCFCFC] min-[2560px]:text-[64px] max-[767.98px]:text-[24px] max-[575.98px]:text-[16px]'>
@@ -25,9 +25,9 @@ function ParallaxBlock({
 export function HomePage() {
   return (
     <>
-      <section className='mt-[10vh] h-[90vh] w-full max-[991.98px]:h-[82vh]'>
+      <section className='mt-[10vh] w-full'>
         <video
-          className='h-full w-full object-cover'
+          className='w-full h-auto block'
           autoPlay
           loop
           muted
