@@ -15,7 +15,7 @@ function ParallaxBlock({
       className='h-[25vh] bg-cover bg-fixed bg-center bg-no-repeat lg:h-[70vh]'
       style={{ backgroundImage: `url("${image}")` }}
     >
-      <h2 className='relative left-[5%] top-1/2 w-max -translate-y-1/2 text-[32px] tracking-[2px] text-[#FCFCFC] min-[2560px]:text-[64px] max-[767.98px]:text-[24px] max-[575.98px]:text-[16px]'>
+      <h2 className='relative left-[5%] top-1/2 w-max -translate-y-1/2 rounded-2xl bg-black/30 px-6 py-4 text-[32px] tracking-[2px] text-[#FCFCFC] backdrop-blur-sm shadow-2xl min-[2560px]:px-10 min-[2560px]:py-8 min-[2560px]:text-[64px] max-[767.98px]:px-4 max-[767.98px]:py-3 max-[767.98px]:text-[24px] max-[575.98px]:px-3 max-[575.98px]:py-2 max-[575.98px]:text-[16px]'>
         {children}
       </h2>
     </section>
